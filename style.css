@@ -1,3 +1,9 @@
+/************* colors ************/
+
+:root {
+  --color-bg: #74C0FC;
+}
+
 /************* reset *************/
 *, *::before, *::after {
   box-sizing: border-box;
@@ -15,6 +21,7 @@ html {
 
 body {
   min-height: 100vh;
+  background-color: var(--color-bg);
   font-size: 1.6rem;
 }
 
