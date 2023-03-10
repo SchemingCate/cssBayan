@@ -5,6 +5,7 @@
   --color-bayan: #FA5252;
   --color-black: #190808;
   --color-white: #FBFAFA;
+  --color-light-grey: #F1ECEC;
 
   --key-border-radius: 5px 5px 0 0;
 }
@@ -165,4 +166,44 @@ img {
   .key--black-key::after {
     left: 70px;
   }
+}
+
+/************* accordeon functional *************/
+input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+input:checked ~ .meme-label .meme-img{
+  height: 100%;
+}
+
+label:hover {
+  cursor: pointer;
+}
+
+/************* accordeon styles *************/
+.meme-title {
+  text-align: center;
+  background-color: var(--color-white);
+  font-size: 3.1rem;
+}
+
+@media (min-width: 820px) {
+  .meme-title {
+    font-size: inherit;
+  }
+}
+
+.meme-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-light-grey);
+}
+
+.meme-img {
+  padding: 15px;
+  height: 0;
 }
