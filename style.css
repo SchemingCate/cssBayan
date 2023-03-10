@@ -3,9 +3,12 @@
 :root {
   --color-bg: #74C0FC;
   --color-bayan: #FA5252;
-  --color-black: #190808;
+  --color-black: #440E0E;
   --color-white: #FBFAFA;
   --color-light-grey: #F1ECEC;
+  --color-gold-light: #F7EF8A;
+  --color-gold-dark: #D2AC47;
+  --color-gold-medium: #EDC967;
 
   --key-border-radius: 0.5rem 0.5rem 0 0;
 }
@@ -52,11 +55,16 @@ img {
   max-width: 100%;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 /************* bayan *************/
 
 .bayan {
   margin: 0 auto;
-  padding: 1.5rem 0.5rem 0 0.5rem;
+  padding: 1.5rem 0.5rem 1.5rem 0.5rem;
   max-width: 32rem;
 }
 
@@ -196,4 +204,110 @@ label:hover {
 .meme-img {
   padding: 1.5rem;
   height: 0;
+}
+
+/************* bayan-bottom *************/
+.bayan-bottom {
+  padding: 1rem;
+  padding-bottom: 2rem;
+  background-color: var(--color-bayan);
+  border-radius: 0 0 3rem 3rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: .2rem;
+}
+
+@media (min-width: 820px) {
+  .bayan-bottom {
+    padding: 6rem;
+    padding-top: 3rem;
+    border-radius: 0 0 7rem 7rem;
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    padding-bottom: 3rem;
+    row-gap: 1.2rem;
+  }
+}
+
+div.bottom-key {
+  display: none;
+}
+
+.bottom-key {
+  border-radius: 50%;
+  height: 5.5rem;
+  width: 5.5rem;
+  background-color: var(--color-white);
+  box-shadow: 0 0.4rem 0.4rem rgba(68, 14, 14, 0.25);
+  transition: box-shadow .5s;
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+@media (min-width: 820px) {
+  .bottom-key {
+    height: 5rem;
+    width: 5rem;
+    font-size: 2rem;
+  }
+  div.bottom-key {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bottom-key {
+    height: 7rem;
+    width: 7rem;
+    font-size: 3rem;
+  }
+}
+
+.bottom-key--black {
+  background-color: var(--color-black);
+}
+
+.github {
+  background-image: url(./assets/logos/github-mark.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@media (min-width: 820px) {
+  .github:hover,
+  .rss:hover {
+  box-shadow: .1rem .6rem .3rem .2rem rgba(68, 14, 14, 0.3);
+}
+}
+
+.github:active,
+.rss:active {
+  box-shadow: 0 0.3rem 0.2rem rgba(68, 14, 14, 0.2);
+}
+
+.copyright {
+  margin-top: 1rem;
+  margin-bottom: -1rem;
+  grid-column: span 11;
+  text-align: center;
+  color: var(--color-gold-light);
+}
+
+.copyright a {
+  transition: color 0.5s;
+}
+
+@media (min-width: 820px) {
+  .copyright a:hover {
+    color: var(--color-gold-dark);
+  }
+}
+
+.copyright a:active {
+  color: var(--color-gold-medium);
 }
