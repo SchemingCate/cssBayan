@@ -207,13 +207,10 @@ input:checked ~ .meme-label .meme-content {
   max-height: 100rem;
 }
 
-@media (min-width: 820px) {
+@media (hover: hover) {
   label:hover {
     cursor: pointer;
   }
-}
-
-@media (hover: hover) {
   .meme-label:hover .toggle-icon {
     transform: rotate(45deg);
   }
@@ -250,10 +247,11 @@ input:checked ~ .meme-label .meme-content {
     padding-right: 4rem;
     font-size: 4.6rem;
   }
+}
 
+@media (hover: hover) {
   .bayan-body:hover {
     cursor: pointer;
-    
   }
   .bayan-body:hover .meme-title{
     color: var(--color-black);
@@ -395,11 +393,11 @@ div.bottom-key {
   background-size: contain;
 }
 
-@media (min-width: 820px) {
+@media (hover: hover) {
   .github:hover,
   .rss:hover {
   box-shadow: .1rem .6rem .3rem .2rem rgba(68, 14, 14, 0.3);
-}
+  }
 }
 
 .github:active,
@@ -419,7 +417,7 @@ div.bottom-key {
   transition: color 0.5s;
 }
 
-@media (min-width: 820px) {
+@media (hover: hover) {
   .copyright a:hover {
     color: var(--color-gold-dark);
   }
