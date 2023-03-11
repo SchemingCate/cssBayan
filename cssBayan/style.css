@@ -10,20 +10,6 @@
   --color-gold-light: #F7EF8A;
   --color-gold-dark: #D2AC47;
   --color-gold-medium: #EDC967;
-
-  --key-border-radius: 0.5rem 0.5rem 0 0;
-}
-
-@media (min-width: 820px) {
-  :root {
-    --key-border-radius: 1rem 1rem 0 0;
-  }
-}
-
-@media (min-width: 1024px) {
-  :root {
-    --key-border-radius: 1.5rem 1.5rem 0 0;
-  }
 }
 
 /************* reset *************/
@@ -98,74 +84,80 @@ a {
   }
 }
 
-.keyboard {
-  height: 8rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+/************* keyboard *************/
+
+:root {
+  --key-border-radius: 0.5rem 0.5rem 0 0;
+  --key-font-size: 3.5rem;
+  --key-gap: 0.5rem;
 }
 
 @media (min-width: 820px) {
-  .keyboard {
-    height: 19rem;
+  :root {
+    --key-border-radius: 1rem 1rem 0 0;
+    --key-gap: 1rem;
+    --key-font-size: 8rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .keyboard {
-    height: 30rem;
+  :root {
+    --key-border-radius: 1.5rem 1.5rem 0 0;
+    --key-font-size: 11rem;
   }
+}
+
+.bayan-top {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repaet(2, 1fr);
+  column-gap: var(--key-gap);
 }
 
 .key {
-  border-radius: var(--key-border-radius);
   background-color: var(--color-white);
   text-align: center;
-  font-size: 3.5rem;
-  width: 3rem;
-  position: relative;
-}
-
-@media (min-width: 820px) {
-  .key {
-    width: 8rem;
-    font-size: 8rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .key {
-    width: 11rem;
-    font-size: 11rem;
-  }
+  font-size: var(--key-font-size);
+  line-height: 130%;
 }
 
 .key--font-accent {
   color: var(--color-bayan);
 }
 
-.key--black-key::after {
-  content:'';
-  position: absolute;
-  background-color: var(--color-black);
+.key--top {
   border-radius: var(--key-border-radius);
-  bottom: 0;
-  left: 2rem;
-  z-index: 1;
-  width: 70%;
-  height: 50%;
+  margin-bottom: -0.05rem;
 }
 
-@media (min-width: 820px) {
-  .key--black-key::after {
-    left: 6rem;
-  }
+.key--span-4 .key--top,
+.key--span-3 .key--top {
+  background-color: var(--color-black);
+  height: 100%;
 }
 
-@media (min-width: 1024px) {
-  .key--black-key::after {
-    left: 7rem;
-  }
+.key--span-4,
+.key--span-3 {
+  display: flex;
+  justify-content: center;
+}
+
+.key--span-4 {
+  grid-column: span 4;
+  gap: 10%;
+}
+
+.key--span-4 .key--top {
+  width: 16%;
+}
+
+.key--span-3  {
+  grid-column: span 3;
+  gap: 13%;
+}
+
+.key--span-3 .key--top {
+  width: 21.5%;
 }
 
 /************* accordeon functional *************/
