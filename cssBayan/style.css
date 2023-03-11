@@ -179,12 +179,24 @@ input:checked ~ .meme-label .meme-img{
 }
 
 .meme-label {
-  display: block;
   overflow: hidden;
+  transition: filter .5s;
 }
 
 input:checked ~ .meme-label .meme-title {
   color: var(--color-black);
+}
+
+.meme-label:active {
+  cursor: progress;
+}
+
+.meme-label:active .meme-img {
+  filter: grayscale(50%);
+}
+
+input:checked ~ .meme-label:active .meme-title {
+  color: var(--color-bayan-bright)
 }
 
 input:checked ~ .meme-label .toggle-icon {
@@ -245,6 +257,9 @@ input:checked ~ .meme-label .meme-content {
   }
   .bayan-body:hover .meme-title{
     color: var(--color-black);
+  }
+  .bayan-body:hover .meme-label:active .meme-title {
+    color: var(--color-bayan-bright);
   }
   .bayan-body:hover .toggle-icon {
     opacity: 1;
