@@ -269,7 +269,7 @@ input:checked ~ .meme-label .meme-content {
 .meme-content {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background-color: var(--color-light-grey);
   max-height: 4rem;
   overflow: hidden;
@@ -280,6 +280,47 @@ input:checked ~ .meme-label .meme-content {
   padding: 1.5rem;
   opacity: 0;
   transition: all .5s;
+}
+
+/************* bayan-folds  *************/
+
+:root {
+  --fold-size: 3rem;
+  --fold-visible-margin: -1.7rem;
+  --fold-hiddden-margin: -4rem;
+}
+
+.side {
+  background-color: var(--color-bg);
+  width: var(--fold-size);
+  height: var(--fold-size);
+  transform: rotate(45deg);
+  transition: all .5s;
+}
+
+.side--left {
+  margin-left: var(--fold-visible-margin);
+}
+
+.side--right {
+  margin-right: var(--fold-visible-margin);
+}
+
+input:checked ~ .meme-label .meme-content .side--left {
+  margin-left: var(--fold-hiddden-margin);
+}
+
+input:checked ~ .meme-label .meme-content .side--right {
+  margin-right: var(--fold-hiddden-margin);
+}
+
+@media (hover: hover) {
+  .meme-label:hover .meme-content .side--left {
+    margin-left: var(--fold-hiddden-margin);
+  }
+  .meme-label:hover .meme-content .side--right {
+    margin-right: var(--fold-hiddden-margin);
+  }
 }
 
 /************* bayan-bottom *************/
@@ -388,3 +429,4 @@ div.bottom-key {
   color: var(--color-gold-medium);
   transition: all .3s ease;
 }
+
