@@ -201,6 +201,18 @@ input:checked ~ .meme-label .meme-content {
   }
 }
 
+@media (hover: hover) {
+  .meme-label:hover .toggle-icon {
+    transform: rotate(45deg);
+  }
+  .meme-label:hover .meme-content {
+    max-height: 100rem;
+  }
+  .meme-label:hover .meme-img {
+    opacity: 1;
+  }
+}
+
 /************* accordeon styles *************/
 
 .meme-title {
