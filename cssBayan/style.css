@@ -229,7 +229,8 @@ input:checked ~ .meme-label .meme-content {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   background-color: var(--color-white);
-  font-size: 3.1rem;
+  font-size: 2.5rem;
+  line-height: 130%;
   display: flex;
   justify-content: space-between;
   color: var(--color-bayan-bright);
@@ -237,7 +238,7 @@ input:checked ~ .meme-label .meme-content {
 }
 
 .toggle-icon {
-  opacity: 0;
+  opacity: 1;
   transition: transform .2s, opacity .5s;
   color: var(--color-black);
 }
@@ -251,6 +252,9 @@ input:checked ~ .meme-label .meme-content {
 }
 
 @media (hover: hover) {
+  .toggle-icon {
+    opacity: 0;
+  }
   .bayan-body:hover {
     cursor: pointer;
   }
@@ -270,13 +274,21 @@ input:checked ~ .meme-label .meme-content {
   align-items: center;
   justify-content: space-between;
   background-color: var(--color-light-grey);
-  max-height: 4rem;
+  max-height: 2rem;
   overflow: hidden;
   transition: all .3s;
 }
 
+@media (min-width: 820px) {
+  .meme-content {
+    max-height: 4rem;
+  }
+}
+
 .meme-img {
-  padding: 1.5rem;
+  max-width: 90%;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
   opacity: 0;
   transition: all .5s;
 }
@@ -284,9 +296,17 @@ input:checked ~ .meme-label .meme-content {
 /************* bayan-folds  *************/
 
 :root {
-  --fold-size: 3rem;
-  --fold-visible-margin: -1.7rem;
-  --fold-hiddden-margin: -4rem;
+  --fold-size: 1.5rem;
+  --fold-visible-margin: -0.8rem;
+  --fold-hiddden-margin: -1.8rem;
+}
+
+@media (min-width: 820px) {
+  :root {
+    --fold-size: 3rem;
+    --fold-visible-margin: -1.7rem;
+    --fold-hiddden-margin: -4rem;
+  }
 }
 
 .side {
