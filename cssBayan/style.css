@@ -175,7 +175,12 @@ input {
 }
 
 input:checked ~ .meme-label .meme-img{
-  height: 100%;
+  opacity: 1;
+}
+
+.meme-label {
+  display: block;
+  overflow: hidden;
 }
 
 input:checked ~ .meme-label .meme-title {
@@ -184,6 +189,10 @@ input:checked ~ .meme-label .meme-title {
 
 input:checked ~ .meme-label .toggle-icon {
   transform: rotate(45deg);
+}
+
+input:checked ~ .meme-label .meme-content {
+  max-height: 100rem;
 }
 
 @media (min-width: 820px) {
@@ -235,11 +244,15 @@ input:checked ~ .meme-label .toggle-icon {
   align-items: center;
   justify-content: center;
   background-color: var(--color-light-grey);
+  max-height: 4rem;
+  overflow: hidden;
+  transition: all .3s;
 }
 
 .meme-img {
   padding: 1.5rem;
-  height: 0;
+  opacity: 0;
+  transition: all .5s;
 }
 
 /************* bayan-bottom *************/
@@ -346,4 +359,5 @@ div.bottom-key {
 
 .copyright a:active {
   color: var(--color-gold-medium);
+  transition: all .3s ease;
 }
