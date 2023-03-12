@@ -225,6 +225,7 @@ input:checked ~ .meme-label .meme-content {
   line-height: 130%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   color: var(--color-bayan-bright);
   transition: color .5s;
 }
