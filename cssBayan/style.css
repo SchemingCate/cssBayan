@@ -245,7 +245,7 @@ input:checked ~ .meme-label .meme-img{
 /*** active (click)***/
 
 .meme-label:active {
-  cursor: progress;
+  cursor: url('./assets/favicons/favicon-32x32.png'), auto;
 }
 
 input:checked ~ .meme-label:active .meme-title {
@@ -259,7 +259,7 @@ input:checked ~ .meme-label:active .meme-title {
 }
 
 .meme-label:active .meme-img {
-  filter: grayscale(50%);
+  filter: grayscale(80%);
 }
 
 /*** hover ***/
