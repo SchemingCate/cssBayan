@@ -240,7 +240,13 @@ input:checked ~ .meme-label .meme-content {
   .meme-title {
     padding-left: 4rem;
     padding-right: 4rem;
-    font-size: 4.6rem;
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .meme-title {
+    font-size: 4.5rem;
   }
 }
 
