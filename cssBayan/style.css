@@ -44,7 +44,7 @@ body {
 @media (min-width: 820px) {
   :root {
     --font-size-meme-title: 3.5rem;
-    --font-size-logo: 3rem;
+    --font-size-logo: 2.2rem;
   }
 }
 
@@ -393,10 +393,14 @@ input:checked ~ .meme-label .meme-content .side--right {
   padding-bottom: 2rem;
   background-color: var(--color-bayan);
   border-radius: 0 0 3rem 3rem;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
   row-gap: .2rem;
+}
+
+.hide {
+  display: none;
 }
 
 @media (min-width: 820px) {
@@ -404,10 +408,12 @@ input:checked ~ .meme-label .meme-content .side--right {
     padding: 6rem;
     padding-top: 3rem;
     border-radius: 0 0 7rem 7rem;
-    display: grid;
     grid-template-columns: repeat(11, 1fr);
     padding-bottom: 3rem;
     row-gap: 1.2rem;
+  }
+  .hide {
+    display: block;
   }
 }
 
@@ -421,7 +427,7 @@ div.bottom-key {
   width: 5.5rem;
   background-color: var(--color-white);
   box-shadow: 0 0.4rem 0.4rem rgba(68, 14, 14, 0.25);
-  transition: box-shadow .5s;
+  transition: all .5s;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -451,15 +457,16 @@ div.bottom-key {
 }
 
 .github {
-  background-image: url(./assets/logos/github-mark.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
+  fill: var(--color-black);
 }
 
 @media (hover: hover) {
   .github:hover,
   .rss:hover {
   box-shadow: .1rem .6rem .3rem .2rem rgba(68, 14, 14, 0.3);
+  background-color: var(--color-black);
+  color: var(--color-white);
+  fill: var(--color-white);
   }
 }
 
