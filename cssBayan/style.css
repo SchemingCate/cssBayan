@@ -359,6 +359,7 @@ input:checked ~ .meme-label:active .meme-title {
   height: var(--fold-size);
   transform: rotate(45deg);
   transition: all .5s;
+  display: flex;
 }
 
 .side--left {
