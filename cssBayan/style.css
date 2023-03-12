@@ -158,7 +158,7 @@ a {
 .bayan-top {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repaet(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   column-gap: var(--key-gap);
 }
 
