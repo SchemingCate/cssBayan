@@ -234,6 +234,7 @@ input:checked ~ .meme-label .toggle-icon {
 }
 
 input:checked ~ .meme-label .meme-content {
+  background-image: none;
   max-height: 100rem;
 }
 
@@ -272,6 +273,7 @@ input:checked ~ .meme-label:active .meme-title {
   }
   .meme-label:hover .meme-content {
     max-height: 100rem;
+    background-image: none;
   }
   .meme-label:hover .meme-img {
     opacity: 1;
@@ -320,6 +322,10 @@ input:checked ~ .meme-label:active .meme-title {
   align-items: center;
   justify-content: space-between;
   background-color: var(--color-light-grey);
+  background-image: url(./assets/bg/line.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
   max-height: 2rem;
   overflow: hidden;
   transition: all .8s;
