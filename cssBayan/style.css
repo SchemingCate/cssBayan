@@ -474,6 +474,10 @@ div.bottom-key {
   fill: var(--color-black);
 }
 
+.github svg {
+  scale: 1.05;
+}
+
 @media (hover: hover) {
   .github:hover,
   .rss:hover {
