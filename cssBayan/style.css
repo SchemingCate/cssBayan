@@ -1,0 +1,516 @@
+/************* colors ************/
+
+:root {
+  --color-bg: #74C0FC;
+  --color-bayan: #FA5252;
+  --color-bayan-bright: #C92A2A;
+  --color-black: #440E0E;
+  --color-white: #FBFAFA;
+  --color-light-grey: #F1ECEC;
+  --color-gold-light: #F7EF8A;
+  --color-gold-dark: #D2AC47;
+  --color-gold-medium: #EDC967;
+}
+
+/************* bayan sizes ************/
+
+:root {
+  --bayan-side-padding: 1.5rem;
+}
+
+@media (min-width: 820px) {
+  :root {
+    --bayan-side-padding: 4rem;
+  }
+}
+
+/************* bayan typography ************/
+
+body {
+  font-family: 'Istok Web';
+  font-style: normal;
+  font-weight: 700;
+  color: var(--color-black);
+  text-align: center;
+}
+
+:root {
+  --font-size-standard: 1.6rem;
+  --font-size-meme-title: 2rem;
+  --font-size-logo: 2rem;
+}
+
+@media (min-width: 820px) {
+  :root {
+    --font-size-standard: 1.8rem;
+    --font-size-meme-title: 2.8rem;
+    --font-size-logo: 2.2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --font-size-standard: 2rem;
+    --font-size-meme-title: 3rem;
+    --font-size-logo: 2.6rem;
+  } 
+}
+
+/************* reset *************/
+* {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  font-size: var(--font-size-standard);
+  user-select: none;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/************* bayan *************/
+
+:root {
+  --bayan-wrapper-width: 95vw;
+}
+
+@media (min-width: 425px) {
+  :root {
+    --bayan-wrapper-width: 39rem;
+  }
+}
+
+@media (min-width: 820px) {
+  :root {
+    --bayan-wrapper-width: 82rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --bayan-wrapper-width: 102.4rem;
+  }
+}
+
+.bayan {
+  margin: 0 auto;
+  padding: 1.5rem 0.5rem 1.5rem 0.5rem;
+  max-width: var(--bayan-wrapper-width);
+}
+
+/************* bayan-top *************/
+.bayan-top {
+  padding: var(--bayan-side-padding);
+  padding-top: 2rem;
+  background-color: var(--color-bayan);
+  border-radius: 1.5rem 1.5rem 0 0;
+}
+
+@media (min-width: 820px) {
+  .bayan-top {
+    padding-top: 4.5rem;
+    border-radius: 2.5rem 2.5rem 0 0;
+  }
+}
+
+/************* keyboard *************/
+
+:root {
+  --key-border-radius: 0.5rem 0.5rem 0 0;
+  --key-font-size: 3.5rem;
+  --key-gap: 0.5rem;
+}
+
+@media (min-width: 820px) {
+  :root {
+    --key-border-radius: 1rem 1rem 0 0;
+    --key-gap: 1rem;
+    --key-font-size: 8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --key-border-radius: 1.5rem 1.5rem 0 0;
+    --key-font-size: 11rem;
+  }
+}
+
+.bayan-top {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: var(--key-gap);
+}
+
+.key {
+  background-color: var(--color-white);
+  font-size: var(--key-font-size);
+  line-height: 130%;
+}
+
+.key--font-accent {
+  color: var(--color-bayan);
+}
+
+.key--top {
+  border-radius: var(--key-border-radius);
+  margin-bottom: -0.05rem;
+}
+
+.key--span-4 .key--top,
+.key--span-3 .key--top {
+  background-color: var(--color-black);
+  height: 100%;
+}
+
+.key--span-4,
+.key--span-3 {
+  display: flex;
+  justify-content: center;
+}
+
+.key--span-4 {
+  grid-column: span 4;
+  gap: 10%;
+}
+
+.key--span-4 .key--top {
+  width: 16%;
+}
+
+.key--span-3  {
+  grid-column: span 3;
+  gap: 13%;
+}
+
+.key--span-3 .key--top {
+  width: 21.5%;
+}
+
+/************* accordeon functional *************/
+
+/*** initial state (closed) ***/
+input {
+  display: none;
+  opacity: 0;
+  z-index: -1;
+}
+
+.meme-label {
+  overflow: hidden;
+  transition: filter .5s;
+}
+
+/*** open (checked) ***/
+
+input:checked ~ .meme-label .meme-title {
+  color: var(--color-black);
+}
+
+input:checked ~ .meme-label .toggle-icon {
+  transform: rotate(45deg);
+}
+
+input:checked ~ .meme-label .meme-content {
+  background-image: none;
+  max-height: 100rem;
+}
+
+input:checked ~ .meme-label .meme-img{
+  opacity: 1;
+}
+
+/*** active (click)***/
+
+.meme-label:active {
+  cursor: url('./assets/favicons/favicon-32x32.png'), auto;
+}
+
+input:checked ~ .meme-label:active .meme-title {
+  color: var(--color-bayan-bright)
+}
+
+@media (hover: hover) {
+  .bayan-body:hover .meme-label:active .meme-title {
+    color: var(--color-bayan-bright);
+  }
+}
+
+.meme-label:active .meme-img {
+  filter: grayscale(80%);
+}
+
+/*** hover ***/
+
+@media (hover: hover) {
+  label:hover {
+    cursor: pointer;
+  }
+  .meme-label:hover .toggle-icon {
+    transform: rotate(45deg);
+  }
+  .meme-label:hover .meme-content {
+    max-height: 100rem;
+    background-image: none;
+  }
+  .meme-label:hover .meme-img {
+    opacity: 1;
+  }
+}
+
+/************* accordeon styles *************/
+
+.meme-title {
+  padding-left: var(--bayan-side-padding);
+  padding-right: var(--bayan-side-padding);
+  background-color: var(--color-white);
+  font-size: var(--font-size-meme-title);
+  text-align: left;
+  line-height: 130%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-bayan-bright);
+  transition: color .5s;
+}
+
+.toggle-icon {
+  opacity: 1;
+  transition: transform .2s, opacity .5s;
+  color: var(--color-black);
+}
+
+@media (hover: hover) {
+  .toggle-icon {
+    opacity: 0;
+  }
+  .bayan-body:hover {
+    cursor: pointer;
+  }
+  .bayan-body:hover .meme-title{
+    color: var(--color-black);
+  }
+  .bayan-body:hover .toggle-icon {
+    opacity: 1;
+  }
+}
+
+.meme-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-light-grey);
+  background-image: url(./assets/bg/line.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  max-height: 2rem;
+  overflow: hidden;
+  transition: all .8s;
+}
+
+@media (min-width: 820px) {
+  .meme-content {
+    max-height: 4rem;
+  }
+}
+
+.meme-img {
+  max-width: 90%;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  opacity: 0;
+  transition: all .8s;
+}
+
+@media (min-width: 820px) {
+  .meme-img {
+    max-width: 40%;
+  }
+}
+
+/************* bayan-folds  *************/
+
+:root {
+  --fold-size: 1.5rem;
+  --fold-visible-margin: -0.8rem;
+  --fold-hiddden-margin: -1.8rem;
+}
+
+@media (min-width: 820px) {
+  :root {
+    --fold-size: 3rem;
+    --fold-visible-margin: -1.7rem;
+    --fold-hiddden-margin: -4rem;
+  }
+}
+
+.side {
+  background-color: var(--color-bg);
+  width: var(--fold-size);
+  height: var(--fold-size);
+  transform: rotate(45deg);
+  transition: all .5s;
+  display: flex;
+}
+
+.side--left {
+  margin-left: var(--fold-visible-margin);
+}
+
+.side--right {
+  margin-right: var(--fold-visible-margin);
+}
+
+input:checked ~ .meme-label .meme-content .side--left {
+  margin-left: var(--fold-hiddden-margin);
+}
+
+input:checked ~ .meme-label .meme-content .side--right {
+  margin-right: var(--fold-hiddden-margin);
+}
+
+@media (hover: hover) {
+  .meme-label:hover .meme-content .side--left {
+    margin-left: var(--fold-hiddden-margin);
+  }
+  .meme-label:hover .meme-content .side--right {
+    margin-right: var(--fold-hiddden-margin);
+  }
+}
+
+/************* bayan-bottom *************/
+.bayan-bottom {
+  padding: 1rem;
+  padding-bottom: 2rem;
+  background-color: var(--color-bayan);
+  border-radius: 0 0 3rem 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  row-gap: .2rem;
+}
+
+.hide {
+  display: none;
+}
+
+@media (min-width: 820px) {
+  .bayan-bottom {
+    padding: 6rem;
+    padding-top: 3rem;
+    border-radius: 0 0 7rem 7rem;
+    grid-template-columns: repeat(11, 1fr);
+    padding-bottom: 3rem;
+    row-gap: 1.2rem;
+  }
+  .hide {
+    display: block;
+  }
+}
+
+div.bottom-key {
+  display: none;
+}
+
+.bottom-key {
+  border-radius: 50%;
+  height: 5.5rem;
+  width: 5.5rem;
+  background-color: var(--color-white);
+  box-shadow: 0 0.4rem 0.4rem rgba(68, 14, 14, 0.25);
+  transition: all .5s;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--font-size-logo);
+}
+
+@media (min-width: 820px) {
+  .bottom-key {
+    height: 5rem;
+    width: 5rem;
+  }
+  div.bottom-key {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bottom-key {
+    height: 7rem;
+    width: 7rem;
+  }
+}
+
+.bottom-key--black {
+  background-color: var(--color-black);
+}
+
+.github {
+  fill: var(--color-black);
+}
+
+.github svg {
+  scale: 1.05;
+}
+
+@media (hover: hover) {
+  .github:hover,
+  .rss:hover {
+  box-shadow: .1rem .6rem .3rem .2rem rgba(68, 14, 14, 0.3);
+  background-color: var(--color-black);
+  color: var(--color-white);
+  fill: var(--color-white);
+  }
+}
+
+.github:active,
+.rss:active {
+  box-shadow: 0 0.3rem 0.2rem rgba(68, 14, 14, 0.2);
+}
+
+.copyright {
+  margin-top: 1rem;
+  margin-bottom: -1rem;
+  grid-column: span 11;
+  color: var(--color-gold-light);
+}
+
+.copyright a {
+  transition: color 0.5s;
+}
+
+@media (hover: hover) {
+  .copyright a:hover {
+    color: var(--color-gold-dark);
+  }
+}
+
+.copyright a:active {
+  color: var(--color-gold-medium);
+}
+
